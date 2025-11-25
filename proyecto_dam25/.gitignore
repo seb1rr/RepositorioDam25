@@ -29,7 +29,7 @@ coverage/
 **/android/app/release
 **/android/local.properties
 **/android/.gradle/
-**/android/app/google-services.json
+
 
 # iOS related
 **/ios/Flutter/App.framework
