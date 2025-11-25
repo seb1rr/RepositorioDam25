@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:proyecto_dam/Pages/Detalle.dart';
 
 class ListarEventosPage extends StatelessWidget {
   const ListarEventosPage({super.key});
@@ -50,7 +51,7 @@ class ListarEventosPage extends StatelessWidget {
                       : null,
 
                   onTap: () {
-                    // Puedes hacer después el detalle de evento
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => DetalleEventoPage(eventoId: evento.id)));
                   },
                 ),
               );
@@ -74,7 +75,6 @@ class ListarEventosPage extends StatelessWidget {
               child: const Text("Eliminar", style: TextStyle(color: Colors.red)),
               onPressed: () async {
                 await FirebaseFirestore.instance.collection("eventos").doc(idEvento).delete();
-
                 Navigator.pop(context);
               },
             ),
